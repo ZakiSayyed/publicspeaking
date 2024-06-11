@@ -3,7 +3,7 @@ import streamlit as st
 import google.generativeai as genai
 
 st.title("Public Speaking AI")
-st.image("PublicSpeaking.png")
+# st.image("PublicSpeaking.png")
 
 template1="""What follows is a friendly conversation between a Human and an AI. The AI collaborates very iteratively with the Human.
 The AI, called SimonAI, is specifically trained by [Company Name] to have excellent Public Seaking skills. The AI adheres to the following guidelines in preparing a Public Speech:
@@ -111,7 +111,7 @@ if prompt := st.chat_input("What would you like to speak about?"):
     with st.chat_message("user"):
         st.markdown(prompt)
 
-    with st.chat_message("assistant", avatar="PublicSpeaking.png"):
+    with st.chat_message("assistant"):
         message_placeholder = st.empty()
         full_response = ""
 
