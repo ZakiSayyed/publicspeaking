@@ -107,7 +107,7 @@ for message in st.session_state.messages:
 
 # Handle user input
 if prompt := st.chat_input("What would you like to speak about?"):
-    st.session_state.messages.append({"role": "user", "content": f"{template1}{prompt}"})
+    st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
         st.markdown(prompt)
 
@@ -117,7 +117,7 @@ if prompt := st.chat_input("What would you like to speak about?"):
 
         try:
             # Attempt to use the 'generate' method
-            response = model.generate_content(prompt)
+            response = model.generate_content(f"{template1}{prompt}")
             full_response = response.text  # Adjust this depending on the response format
             # Simulate stream of response with milliseconds delay
             for chunk in full_response.split():
